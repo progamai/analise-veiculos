@@ -22,19 +22,22 @@ else:
     df_filtrado = df
 
 # gráfico 1 - preço
-st.subheader("Distribuição de preços")
-fig1 = px.histogram(df_filtrado, x="price", nbins=50)
-st.plotly_chart(fig1)
+if st.checkbox("Mostrar histograma de preços"):
+    st.subheader("Distribuição de preços")
+    fig1 = px.histogram(df_filtrado, x="price", nbins=50)
+    st.plotly_chart(fig1)
 
 # gráfico 2 - preço por ano
 if "model_year" in df.columns:
-    st.subheader("Preço por ano do modelo")
-    fig2 = px.scatter(df_filtrado, x="model_year", y="price", color="condition")
-    st.plotly_chart(fig2)
+    if st.checkbox("Mostrar preço por ano"):
+        st.subheader("Preço por ano do modelo")
+        fig2 = px.scatter(df_filtrado, x="model_year", y="price", color="condition")
+        st.plotly_chart(fig2)
 
 # gráfico 3 - odômetro vs preço
 if "odometer" in df.columns:
-    st.subheader("Quilometragem vs Preço")
-    fig3 = px.scatter(df_filtrado, x="odometer", y="price", color="type")
-    st.plotly_chart(fig3)
+    if st.checkbox("Mostrar relação quilometragem vs preço"):
+        st.subheader("Quilometragem vs Preço")
+        fig3 = px.scatter(df_filtrado, x="odometer", y="price", color="type")
+        st.plotly_chart(fig3)
     

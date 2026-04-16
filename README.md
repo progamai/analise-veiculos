@@ -22,4 +22,3 @@ Este aplicativo web permite visualizar e explorar um conjunto de dados de veícu
 ```bash
 cd C:\analise-veiculos
 streamlit run app.py
-
